@@ -1,0 +1,12 @@
+CLASSROOM INSURANCE CLAIM
+Synthetic training data only
+Claim ID: CLM-000101
+Policy number: POL-20481971
+Claimant: Asha Rao
+Date of loss: 03/04/2026 (DD/MM/YYYY)
+Currency: INR
+Repair materials: 450.00
+Labor: 620.00
+Inspection: 510.00
+Total: 1,580.00
+Policy period: 01/01/2026 to 31/12/2026

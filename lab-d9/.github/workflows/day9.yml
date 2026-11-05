@@ -1,0 +1,15 @@
+name: Day 9 replay gate
+on: [push, pull_request]
+jobs:
+  replay:
+    name: Day 9 replay gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unit tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Behavioral evaluations
+        run: python3 evals/run_all.py
+      - name: Print report
+        if: always()
+        run: test ! -f evals/report.md || cat evals/report.md

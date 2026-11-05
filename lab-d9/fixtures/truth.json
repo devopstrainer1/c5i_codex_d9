@@ -1,0 +1,16 @@
+{
+  "claim_clean": {
+    "claim_id": "CLM-000101",
+    "policy_number": "POL-20481971",
+    "claimant_name": "Asha Rao",
+    "date_of_loss": "2026-04-03",
+    "currency": "INR",
+    "line_items": [
+      "450.00",
+      "620.00",
+      "510.00"
+    ],
+    "total_amount": "1580.00",
+    "source_id": "claim_clean"
+  }
+}

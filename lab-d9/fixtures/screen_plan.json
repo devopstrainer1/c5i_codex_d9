@@ -1,0 +1,17 @@
+[
+  {
+    "action": "open",
+    "url": "http://127.0.0.1:5050/legacy"
+  },
+  {
+    "action": "read"
+  },
+  {
+    "action": "fill",
+    "field": "stage",
+    "value": "Underwriting"
+  },
+  {
+    "action": "submit"
+  }
+]

@@ -1,0 +1,666 @@
+[
+  {
+    "id": "V01",
+    "kind": "voice",
+    "events": [
+      {
+        "text": "status",
+        "t": 0
+      }
+    ],
+    "expect": "Review",
+    "stage": "Review",
+    "writes": 0
+  },
+  {
+    "id": "V02",
+    "kind": "voice",
+    "events": [
+      {
+        "text": "confirm",
+        "t": 0
+      }
+    ],
+    "expect": "NO_PENDING",
+    "stage": "Review",
+    "writes": 0
+  },
+  {
+    "id": "V03",
+    "kind": "voice",
+    "events": [
+      {
+        "text": "move Underwriting",
+        "t": 0
+      }
+    ],
+    "expect": "AWAITING_CONFIRM",
+    "stage": "Review",
+    "writes": 0
+  },
+  {
+    "id": "V04",
+    "kind": "voice",
+    "events": [
+      {
+        "text": "move Underwriting",
+        "t": 0
+      },
+      {
+        "text": "confirm",
+        "t": 1
+      }
+    ],
+    "expect": "EXECUTED",
+    "stage": "Underwriting",
+    "writes": 1
+  },
+  {
+    "id": "V05",
+    "kind": "voice",
+    "events": [
+      {
+        "text": "move Underwriting",
+        "t": 0
+      },
+      {
+        "text": "confirm",
+        "t": 1
+      },
+      {
+        "text": "confirm",
+        "t": 2
+      }
+    ],
+    "expect": "NO_PENDING",
+    "stage": "Underwriting",
+    "writes": 1
+  },
+  {
+    "id": "V06",
+    "kind": "voice",
+    "events": [
+      {
+        "text": "move Underwriting",
+        "t": 0
+      },
+      {
+        "text": "cancel",
+        "t": 1
+      }
+    ],
+    "expect": "CANCELLED",
+    "stage": "Review",
+    "writes": 0
+  },
+  {
+    "id": "V07",
+    "kind": "voice",
+    "events": [
+      {
+        "text": "move Underwriting",
+        "t": 0
+      },
+      {
+        "text": "yes but wait",
+        "t": 1
+      }
+    ],
+    "expect": "CANCELLED",
+    "stage": "Review",
+    "writes": 0
+  },
+  {
+    "id": "V08",
+    "kind": "voice",
+    "events": [
+      {
+        "text": "move Underwriting",
+        "t": 0
+      },
+      {
+        "text": "move Approved",
+        "t": 1
+      }
+    ],
+    "expect": "PENDING_EXISTS",
+    "stage": "Review",
+    "writes": 0
+  },
+  {
+    "id": "V09",
+    "kind": "voice",
+    "events": [
+      {
+        "text": "move Unknown",
+        "t": 0
+      }
+    ],
+    "expect": "INVALID_STAGE",
+    "stage": "Review",
+    "writes": 0
+  },
+  {
+    "id": "V10",
+    "kind": "voice",
+    "events": [
+      {
+        "text": "move Underwriting",
+        "t": 0
+      },
+      {
+        "text": "status",
+        "t": 1
+      }
+    ],
+    "expect": "Review",
+    "stage": "Review",
+    "writes": 0
+  },
+  {
+    "id": "V11",
+    "kind": "voice",
+    "events": [
+      {
+        "text": "move Underwriting",
+        "t": 0
+      },
+      {
+        "text": "confirm",
+        "t": 11
+      }
+    ],
+    "expect": "EXPIRED",
+    "stage": "Review",
+    "writes": 0
+  },
+  {
+    "id": "V12",
+    "kind": "voice",
+    "events": [
+      {
+        "text": "move Underwriting",
+        "t": 0
+      },
+      {
+        "text": "cancel",
+        "t": 1
+      },
+      {
+        "text": "confirm",
+        "t": 2
+      }
+    ],
+    "expect": "NO_PENDING",
+    "stage": "Review",
+    "writes": 0
+  },
+  {
+    "id": "D01",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {},
+    "expect": "SAVED",
+    "must_flag": [],
+    "review": true,
+    "source_extra": "",
+    "saved": 1
+  },
+  {
+    "id": "D02",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {},
+    "expect": "AWAITING_REVIEW",
+    "must_flag": [],
+    "review": false,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D03",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "total_amount": "7580.00",
+      "evidence": {
+        "policy_number": "POL-20481971",
+        "total_amount": "7580.00"
+      }
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "arithmetic"
+    ],
+    "review": true,
+    "source_extra": "\n7580.00",
+    "saved": 0
+  },
+  {
+    "id": "D04",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "policy_number": "POL-20481977"
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "policy_checksum"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D05",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "claimant_name": "Wrong Person"
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "policy_lookup"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D06",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "date_of_loss": "03/04/2026"
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "date_rules"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D07",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "date_of_loss": "2027-01-02"
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "date_rules"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D08",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "line_items": []
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "arithmetic"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D09",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "evidence": {}
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "evidence_present"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D10",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "claim_id": "BAD-101"
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "claim_id"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D11",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "total_amount": "NaN"
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "arithmetic"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D12",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "line_items": [
+        "-450.00",
+        "620.00",
+        "510.00"
+      ]
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "arithmetic"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D13",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "policy_number": "POL-20481982"
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "policy_lookup"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D14",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "date_of_loss": "2026-12-01"
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "date_rules"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D15",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "date_of_loss": "2025-12-31"
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "date_rules"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D16",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "date_of_loss": "2026-02-30"
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "date_rules"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D17",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "total_amount": "Infinity"
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "arithmetic"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D18",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "policy_number": null
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "policy_checksum"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D19",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "evidence": {
+        "policy_number": "POL-20481971",
+        "total_amount": "620.00"
+      }
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "evidence_values"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D20",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "evidence": {
+        "policy_number": "POL-20481971"
+      }
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "evidence_present"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D21",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "claimant_name": "Different Holder"
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "policy_lookup"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D22",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "total_amount": "1580.01",
+      "evidence": {
+        "policy_number": "POL-20481971",
+        "total_amount": "1580.01"
+      }
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "arithmetic"
+    ],
+    "review": true,
+    "source_extra": "\n1580.01",
+    "saved": 0
+  },
+  {
+    "id": "D23",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "date_of_loss": ""
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "date_rules"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "D24",
+    "kind": "extraction",
+    "fixture_condition": "candidate_replay",
+    "patch": {
+      "line_items": [
+        "not-a-number"
+      ]
+    },
+    "expect": "QUARANTINED",
+    "must_flag": [
+      "arithmetic"
+    ],
+    "review": true,
+    "source_extra": "",
+    "saved": 0
+  },
+  {
+    "id": "S01",
+    "kind": "screen",
+    "plan": [
+      {
+        "action": "open",
+        "url": "https://example.com"
+      }
+    ],
+    "expect": "BLOCKED"
+  },
+  {
+    "id": "S02",
+    "kind": "screen",
+    "plan": [
+      {
+        "action": "read"
+      },
+      {
+        "action": "read"
+      },
+      {
+        "action": "read"
+      },
+      {
+        "action": "read"
+      },
+      {
+        "action": "read"
+      },
+      {
+        "action": "read"
+      },
+      {
+        "action": "read"
+      },
+      {
+        "action": "read"
+      },
+      {
+        "action": "read"
+      },
+      {
+        "action": "read"
+      },
+      {
+        "action": "read"
+      },
+      {
+        "action": "read"
+      },
+      {
+        "action": "read"
+      },
+      {
+        "action": "read"
+      },
+      {
+        "action": "read"
+      },
+      {
+        "action": "read"
+      }
+    ],
+    "expect": "STEP_LIMIT"
+  },
+  {
+    "id": "S03",
+    "kind": "screen",
+    "plan": [
+      {
+        "action": "fill"
+      },
+      {
+        "action": "submit"
+      }
+    ],
+    "approvals": [
+      true,
+      false
+    ],
+    "expect": "DENIED"
+  },
+  {
+    "id": "S04",
+    "kind": "screen",
+    "plan": [
+      {
+        "action": "fill"
+      },
+      {
+        "action": "submit"
+      }
+    ],
+    "dry_run": true,
+    "expect": "DRY_RUN"
+  }
+]
